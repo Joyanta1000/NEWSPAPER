@@ -32,6 +32,18 @@ class reporterController extends Controller
 
     public function reg(Request $request)
     {
+
+$this->validate($request,[
+           //'id' => 'required|unique:libraries,id',
+           
+           'remail' => 'required|email|unique:reporters,remail',
+           'image' => 'required|mimes:pdf',
+           'phonenumb' => 'required|max:11|regex:/(01)[0-9]{9}/',
+           'pass1' => 'required',
+           'pass' => 'required|same:pass1'
+        ]);
+
+
          if($request->has('image'))
 {
     if ($request->pass1==$request->pass)
@@ -61,7 +73,7 @@ class reporterController extends Controller
 
       $reporter->save();
 
-      return redirect('reporter/login');
+      return redirect('reporter/login')->with('message','Maybe you have to wait for admin approval');
       
 }
 else
@@ -102,11 +114,11 @@ return redirect()->back();
             $request->session()->put('remail',$obj->remail);
             $request->session()->put('password',$obj->password);
             $request->session()->put('code',$obj->code);
-            return redirect('/reporter/add');
+            return redirect('/reporter/add')->with('message','Welcome!');
         }
 
         if (!$obj){
- return redirect('reporter/login');
+ return redirect('reporter/login')->with('wrong','Wrong instructions are given or wait for approval');
 }
     }
 
@@ -186,4 +198,21 @@ return redirect()->back();
         $s->save();
         return redirect('admin/rlist');
     }
+
+   public function changepass(Request $request)
+   {
+       $code = $request->code;
+       $pass = $request->password;
+       $pass1 = $request->password1;
+//dd($pass1);
+       $change = reporter::where('code','=',$code)
+       ->where('password','=',$pass)
+       ->first();
+//dd($code);
+       $change->password = $pass1;
+       //dd($change->password);
+      $change->save();
+           return redirect()->back();
+       
+   }
 }

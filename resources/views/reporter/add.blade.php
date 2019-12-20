@@ -33,7 +33,13 @@
 <!--===============================================================================================-->
 </head>
 <body>
-
+<div>
+@if(Session::has('message'))
+  <div>
+    <p style="text-align: center; font-size: 20px; color: black; background-color: lavender; width: 100%; border-radius: 5px;">{{Session::get('message')}}</p>
+  </div>
+  @endif
+</div>
 
 	<div class="container-contact100">
 		<div class="wrap-contact100">

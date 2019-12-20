@@ -32,9 +32,27 @@ $dt = $startDate->format('Y-m-d');
         $n = DB::table('papers')->where('subtypes','=','International')->where('status','=','Accepted')->where('date',$dt)->get();
         $m = DB::table('papers')->where('subtypes','=','Breaking News')->where('status','=','Accepted')->where('date',$dt)->get();
       $o = DB::table('papers')->where('subtypes','=','Breaking News')->where('status','=','Accepted')->where('date',$dt)->first();
+
+$a = paper::orderBy('created_at', 'desc')->where('types','=','Politics')->first();
+
+
+      $b = paper::orderBy('created_at', 'desc')->where('types','=','Business')->first();
+
+      $c = paper::orderBy('created_at', 'desc')->where('types','=','Technology')->first();
+
+      $d = paper::orderBy('created_at', 'desc')->where('types','=','Health')->first();
+
+      $e = paper::orderBy('created_at', 'desc')->where('types','=','Travel')->first();
+
+      $f = paper::orderBy('created_at', 'desc')->where('types','=','Sports')->first();
+
+      $g = paper::orderBy('created_at', 'desc')->where('types','=','Others')->first();
+
+
+
       if ($n&&$m&&$o)
       {
-      return view('/index',['papers'=>$n,'paper'=>$m,'pape'=>$o]);
+      return view('/index',['papers'=>$n,'paper'=>$m,'pape'=>$o,'a'=>$a,'b'=>$b,'c'=>$c,'d'=>$d,'e'=>$e,'f'=>$f,'g'=>$g]);
     }
     else
     {
@@ -330,8 +348,14 @@ else{
 
      public function news(Request $request)
     {
+       $date = date('Y-m-d');
+$startDate = new \DateTime('NOW');
+
+$startDate->modify("+6 hour");
+
+$dt = $startDate->format('Y-m-d');
      $types = $request->types;
-        $show = paper::where('types',$types)->get();
+        $show = paper::where('types',$types)->where('status','=','Accepted')->where('date',$dt)->get();
         return view('news',['news'=>$show]);
     }
 
@@ -495,6 +519,31 @@ else{
     public function minnews()
     {
      
+    }
+
+     public function single($id)
+    {
+        $show = paper::find($id);
+        return view('single-post',['papers'=>$show]);
+    }
+
+    public function old(Request $request)
+    {
+      //$startDate = $request->date;
+      //$startDate->modify("+6 hour");
+      //$dt = $startDate->format('Y-m-d');
+      //$date = $dt;
+      //$dt = 2019-12-17;
+      $date = $request->input('date');
+      //dd($date);
+      $old = paper::where('date','=',$date)->get();
+      //dd($old);
+      return view('oldnews',['old'=>$old]);
+    }
+
+    public function featured()
+    {
+      
     }
 
     

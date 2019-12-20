@@ -5,8 +5,9 @@
                     <div class="col-12">
                         <div class="top-header-content d-flex align-items-center justify-content-between">
                             <!-- Logo -->
-                            <div class="logo">
-                                <a href="{{URL::to('/')}}"><img src="img/core-img/logo.png" alt=""></a>
+                            <div>
+                                <a href="{{URL::to('/')}}"><img src="mars1.png" width="150" height="150">
+                                </a>
                             </div>
 
                             <!-- Login Search Area -->
@@ -163,7 +164,17 @@
                                     </form></a></li>
                                     
                                     <li><a href="{{URL::to('/contact')}}">Contact</a></li>
+                                  
                                 </ul>
+                                  <li style="position: relative; color: red;"> Previous news by date
+                                        <form action="{{URL::to('/oldnews')}}" method="post" enctype="multipart/form-data">
+                                            
+                                            {{csrf_field()}}
+                                            <label for="Search">
+                                            <input type="date" name="date" class="form-control"><input type="submit" name="submit" value="-->" class="btn-danger" hidden></label>
+                                        </form>
+                                        
+                                    </li>
                             </div>
                             <!-- Nav End -->
                         </div>

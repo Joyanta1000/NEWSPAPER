@@ -65,7 +65,8 @@
                             
                             <div class="single-blog-post featured-post">
                                 <div class="post-thumb">
-                                    <a href="#"><img src="{{asset($pape->name)}}" alt=""></a>
+                                    <a href="{{URL::to('/single-post/'.$pape->id)}}"><img src="{{asset($pape->name)}}" alt=""></a>
+                                    
                                 </div>
                                 <div class="post-data">
                                     <a href="#" class="post-catagory">{{$pape->subtypes}}</a>
@@ -74,7 +75,7 @@
                                     </a>
                                     <div class="post-meta">
                                         <p class="post-author">By <a href="#">{{$pape->reporter}}</a><br>{{$pape->date}}</p>
-                                        <p class="post-excerp">{{$pape->details}} </p>
+                                        <p class="post-excerp"> {{$pape->types}} </p>
                                         <!-- Post Like & Post Comment -->
                                         <!-- <div class="d-flex align-items-center">
                                             <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
@@ -91,7 +92,8 @@
                             @foreach($paper as $pa)
                             <div class="single-blog-post featured-post-2">
                                 <div class="post-thumb">
-                                    <a href="#"><img src="{{asset($pa->name)}}" alt=""></a>
+                                    <a href="{{URL::to('/single-post/'.$pa->id)}}"><img src="{{asset($pa->name)}}" alt=""></a>
+                                    
                                 </div>
                                 <div class="post-data">
                                     <a href="#" class="post-catagory">{{$pa->subtypes}}</a>
@@ -102,8 +104,10 @@
                                                 <br>
                                                 
                                                 <br>
-                                                {{$pa->details}}
+                                               
                                             </h6>
+
+                                            <b>{{$pa->types}}</b>
                                         </a>
                                         <!-- Post Like & Post Comment -->
                                         <!-- <div class="d-flex align-items-center">
@@ -122,100 +126,112 @@
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <!-- Single Featured Post -->
+
                     <div class="single-blog-post small-featured-post d-flex">
                         <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>
+                        <a href="{{URL::to('/single-post/'.$a->id)}}"><img src="{{asset($a->name)}}" alt=""></a>
                         </div>
                         <div class="post-data">
-                            <a href="#" class="post-catagory">Finance</a>
+                            <a href="#" class="post-catagory">{{$a->types}}</a>
                             <div class="post-meta">
                                 <a href="#" class="post-title">
-                                    <h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>
+                                    <h6>{{$a->title}}</h6>
                                 </a>
-                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
+                                <p class="post-date"><span>{{$a->date}}</span></p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Single Featured Post -->
                     <div class="single-blog-post small-featured-post d-flex">
                         <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/20.jpg" alt=""></a>
+                        <a href="{{URL::to('/single-post/'.$b->id)}}"><img src="{{asset($b->name)}}" alt=""></a>
                         </div>
                         <div class="post-data">
-                            <a href="#" class="post-catagory">Politics</a>
+                            <a href="#" class="post-catagory">{{$b->types}}</a>
                             <div class="post-meta">
                                 <a href="#" class="post-title">
-                                    <h6>Sed a elit euismod augue semper congue sit amet ac sapien.</h6>
+                                    <h6>{{$b->title}}</h6>
                                 </a>
-                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
+                                <p class="post-date"><span>{{$b->date}}</span></p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Single Featured Post -->
                     <div class="single-blog-post small-featured-post d-flex">
                         <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/21.jpg" alt=""></a>
+                        <a href="{{URL::to('/single-post/'.$c->id)}}"><img src="{{asset($c->name)}}" alt=""></a>
                         </div>
                         <div class="post-data">
-                            <a href="#" class="post-catagory">Health</a>
+                            <a href="#" class="post-catagory">{{$c->types}}</a>
                             <div class="post-meta">
                                 <a href="#" class="post-title">
-                                    <h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>
+                                    <h6>{{$c->title}}</h6>
                                 </a>
-                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
+                                <p class="post-date"><span>{{$c->date}}</span></p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Single Featured Post -->
                     <div class="single-blog-post small-featured-post d-flex">
                         <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/22.jpg" alt=""></a>
+                        <a href="{{URL::to('/single-post/'.$d->id)}}"><img src="{{asset($d->name)}}" alt=""></a>
                         </div>
                         <div class="post-data">
-                            <a href="#" class="post-catagory">Finance</a>
+                            <a href="#" class="post-catagory">{{$d->types}}</a>
                             <div class="post-meta">
                                 <a href="#" class="post-title">
-                                    <h6>Augue semper congue sit amet ac sapien. Fusce consequat.</h6>
+                                    <h6>{{$d->title}}</h6>
                                 </a>
-                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
+                                <p class="post-date"><span>{{$d->date}}</span></p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Single Featured Post -->
                     <div class="single-blog-post small-featured-post d-flex">
                         <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/23.jpg" alt=""></a>
+                        <a href="{{URL::to('/single-post/'.$e->id)}}"><img src="{{asset($c->name)}}" alt=""></a>
                         </div>
                         <div class="post-data">
-                            <a href="#" class="post-catagory">Travel</a>
+                            <a href="#" class="post-catagory">{{$e->types}}</a>
                             <div class="post-meta">
                                 <a href="#" class="post-title">
-                                    <h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>
+                                    <h6>{{$e->title}}</h6>
                                 </a>
-                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
+                                <p class="post-date"><span>{{$e->date}}</span></p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Single Featured Post -->
                     <div class="single-blog-post small-featured-post d-flex">
                         <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/24.jpg" alt=""></a>
+                        <a href="{{URL::to('/single-post/'.$f->id)}}"><img src="{{asset($c->name)}}" alt=""></a>
                         </div>
                         <div class="post-data">
-                            <a href="#" class="post-catagory">Politics</a>
+                            <a href="#" class="post-catagory">{{$f->types}}</a>
                             <div class="post-meta">
                                 <a href="#" class="post-title">
-                                    <h6>Augue semper congue sit amet ac sapien. Fusce consequat.</h6>
+                                    <h6>{{$f->title}}</h6>
                                 </a>
-                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
+                                <p class="post-date"><span>{{$f->date}}</span></p>
                             </div>
                         </div>
                     </div>
+
+                    <div class="single-blog-post small-featured-post d-flex">
+                        <div class="post-thumb">
+                        <a href="{{URL::to('/single-post/'.$g->id)}}"><img src="{{asset($g->name)}}" alt=""></a>
+                        </div>
+                        <div class="post-data">
+                            <a href="#" class="post-catagory">{{$g->types}}</a>
+                            <div class="post-meta">
+                                <a href="#" class="post-title">
+                                    <h6>{{$g->title}}</h6>
+                                </a>
+                                <p class="post-date"><span>{{$g->date}}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Featured Post -->
                 </div>
             </div>
         </div>
@@ -235,24 +251,29 @@
 
                         <!-- Single Post -->
                         @foreach($papers as $p)
+                         
                         <div class="col-12 col-md-6">
+                            
                             <div class="single-blog-post style-3">
                                 <div class="post-thumb">
-                                    <a href="#"><img src="{{asset($p->name)}}" alt=""></a>
+                                    <a href="{{URL::to('/single-post/'.$p->id)}}">
+                                   <img src="{{asset($p->name)}}" alt="">
+                                   </a>
+                                    
                                 </div>
                                 <div class="post-data">
                                     <a href="#" class="post-catagory">{{$p->subtypes}}</a><br>{{$p->date}}
                                     <a href="#" class="post-title">
-                                        <h6>{{$p->title}}<br>{{$p->details}}</h6>
+                                        <h6>{{$p->title}}</h6>
+                                        <b>{{$p->types}}</b>
 
                                     </a>
-                                    <div class="post-meta d-flex align-items-center">
-                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
-                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
-                                    </div>
+                                   
                                 </div>
                             </div>
+                            
                         </div>
+                    
                         @endforeach
 
                         <!-- Single Post -->
@@ -381,7 +402,7 @@
                         <img src="img/bg-img/video1.jpg" alt="">
                         <!-- Video Button -->
                         <div class="videobtn">
-                            <a href="https://www.youtube.com/watch?v=5BQr-j3BBzU" class="videoPlayer"><i class="fa fa-play" aria-hidden="true"></i></a>
+                            <a href="https://www.youtube.com/watch?v=tHTol6680YM" class="videoPlayer"><i class="fa fa-play" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -392,7 +413,7 @@
                         <img src="img/bg-img/video2.jpg" alt="">
                         <!-- Video Button -->
                         <div class="videobtn">
-                            <a href="https://www.youtube.com/watch?v=5BQr-j3BBzU" class="videoPlayer"><i class="fa fa-play" aria-hidden="true"></i></a>
+                            <a href="https://www.youtube.com/watch?v=cBIoPplnbf8" class="videoPlayer"><i class="fa fa-play" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -403,7 +424,7 @@
                         <img src="img/bg-img/video3.jpg" alt="">
                         <!-- Video Button -->
                         <div class="videobtn">
-                            <a href="https://www.youtube.com/watch?v=5BQr-j3BBzU" class="videoPlayer"><i class="fa fa-play" aria-hidden="true"></i></a>
+                            <a href="https://www.youtube.com/watch?v=tlyxzsos_dc" class="videoPlayer"><i class="fa fa-play" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>

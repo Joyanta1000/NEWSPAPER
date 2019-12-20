@@ -5,10 +5,10 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>The News Paper - News &amp; Lifestyle Magazine Template</title>
+    <title>Mars World</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{{asset('img/core-img/favicon.ico')}}">
+    <link rel="icon" href="{{asset('img/mars1.png')}}">
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="{{asset('style.css')}}">

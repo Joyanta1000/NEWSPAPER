@@ -31,9 +31,9 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/single-post', function () {
-    return view('single-post');
-});
+Route::get('/single-post/{id}','paperController@single');
+Route::post('/oldnews','paperController@old');
+Route::get('/oldnews','paperController@old');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -95,5 +95,11 @@ Route::post('rstore', 'paperController@rstore');
 Route::get('reporter/table','paperController@rtable'); 
 
 Route::post('logout','reporterController@logout');
+
+Route::get('/changepass',function(){
+return view('reporter.changepass');
+});
+
+Route::post('change','reporterController@changepass');
 
 });

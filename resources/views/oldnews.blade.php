@@ -20,15 +20,15 @@
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <div class="section-heading">
-                        
-                        <h6>News By Category</h6>
+                         
+                        <h6>News By Category<br>***Previous news***</h6>
                        
                     </div>
 
                     <div class="row">
 
                         <!-- Single Post -->
-                        @foreach($news as $p)
+                        @foreach($old as $p)
                         
                         <div class="col-12 col-md-6">
                             <a href="">

@@ -6,11 +6,10 @@
                         <div class="top-header-content d-flex align-items-center justify-content-between">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="{{URL::to('/')}}"><img src="img/core-img/logo.png" alt=""></a>
-
-<i style="color: white; font-size: 20px;">{{session()->get('email')}}</i> 
-
-                            </div>
+                                <a href="{{URL::to('/')}}"><img src="/img/mars1.png" width="150" height="150">
+                                </a>
+                           </div>
+                           <i style="color: white; font-size: 20px;">{{session()->get('email')}}</i> 
 
                             <!-- Login Search Area -->
                             <div class="login-search-area d-flex align-items-center">

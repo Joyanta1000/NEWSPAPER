@@ -64,12 +64,14 @@
 						<select class="js-select2" name="types" required>
 							<option>Please chooses</option>
 							<option value="Politics">Politics</option>
-							<option value="Breaking News">Breaking News</option>
+							
 							<option value="Business">Business</option>
 							<option value="Technology">Technology</option>
 							<option value="Health">Health</option>
 							<option value="Travel">Travel</option>
 							<option value="Sports">Sports</option>
+
+							<option value="Others">Others</option>
 						</select>
 						<div class="dropDownSelect2"></div>
 					</div>

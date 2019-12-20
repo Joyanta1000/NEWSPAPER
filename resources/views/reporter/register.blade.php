@@ -37,30 +37,41 @@
 					<span class="login100-form-title p-b-51">
 						Register
 					</span>
+<div class="error">
+@if(count($errors) > 0)
+<div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error)
+       <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
+</div>	
 
-					
+				
 					
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Email is required">
-						<input class="input100" type="text" name="remail" placeholder="Email">
+						<input class="input100" type="text" name="remail" placeholder="Email" value="{{old('remail')}}">
 						<span class="focus-input100"></span>
 					</div>
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "CV is required"> <h1 style="color: red; font-size: 20px;">*CV is required</h1>
-						<input class="input100" type="file" name="image" placeholder="CV">
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "CV is required"> <h1 style="color: red; font-size: 20px;">*CV is required(*must be pdf)</h1>
+						<input class="input100" type="file" name="image" placeholder="CV" value="{{old('file')}}">
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "PhoneNumber is required">
-						<input class="input100" type="text" name="phonenumb" placeholder="PhoneNumber">
+						<input class="input100" type="text" name="phonenumb" placeholder="PhoneNumber" value="{{old('phonenumb')}}">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass1" placeholder="Password">
+						<input class="input100" type="password" name="pass1" placeholder="Password" value="{{old('pass1')}}">
 						<span class="focus-input100"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Confirm Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Confirm Password">
+						<input class="input100" type="password" name="pass" placeholder="Confirm Password" value="{{old('pass')}}">
 						<span class="focus-input100"></span>
 					</div>
 					<input type="hidden" name="status" value="New">

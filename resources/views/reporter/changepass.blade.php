@@ -1,4 +1,4 @@
-@extends('default.default')
+@extends('reporter.default.default')
 @section('content')
 <head>
 	<title>THE NEWSPAPER</title>
@@ -32,41 +32,26 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
-				<form class="login100-form validate-form flex-sb flex-w" method="post" action="{{URL::to('rlogin')}}">
+				<form class="login100-form validate-form flex-sb flex-w" method="post" action="{{URL::to('change')}}">
 					{{csrf_field()}}
-
-<div>
-@if(Session::has('wrong'))
-  <div>
-    <p style="text-align: center; font-size: 20px; color: white; background-color: red; width: 100%; border-radius: 5px;">{{Session::get('wrong')}}</p>
-  </div>
-  @endif
-</div>
-
-<div>
-@if(Session::has('message'))
-  <div>
-    <p style="text-align: center; font-size: 20px; color: white; background-color: red; width: 100%; border-radius: 5px;">{{Session::get('message')}}</p>
-  </div>
-  @endif
-</div>
-
 					<span class="login100-form-title p-b-51">
-						Login
+						Change password
 					</span>
 
 					
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "Email is required">
-						<input class="input100" type="text" name="remail" placeholder="Email">
-						<span class="focus-input100"></span>
-					</div>
+					<input type="hidden" name="code" value="{{session()->get('code')}}">
 					
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-						<input class="input100" type="password" name="password" placeholder="Password">
+						<input class="input100" type="password" name="password" placeholder="Current Password">
 						<span class="focus-input100"></span>
 					</div>
-					<input type="hidden" name="status" value="Active">
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+						<input class="input100" type="password" name="password1" placeholder="New Password">
+						<span class="focus-input100"></span>
+					</div>
+					
 					
 					<div class="flex-sb-m w-full p-t-3 p-b-24">
 						<div class="contact100-form-checkbox">

@@ -6,17 +6,17 @@
                         <div class="top-header-content d-flex align-items-center justify-content-between">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="{{URL::to('/')}}"><img src="img/core-img/logo.png" alt=""></a>
-
-<i style="color: white; font-size: 20px;">{{session()->get('code')}}</i> 
-
+                            <a href="{{URL::to('/')}}"><img src="mars1.png" width="150" height="150">
+                                </a>
                             </div>
+                            <i style="color: white; font-size: 20px;">{{session()->get('code')}}</i> 
 
                             <!-- Login Search Area -->
                             <div class="login-search-area d-flex align-items-center">
                                 <!-- Login -->
                                 <div class="login d-flex">
                                     <a href="{{URL::to('/reporter/add')}}">Add News</a>
+                                    <a href="{{URL::to('/changepass')}}">Change password</a>
                                     <form method="post" action="{{URL::to('logout')}}" id="logout">
                                     {{csrf_field()}}
                                     <a href="#" onclick="getElementById('logout').submit()">Logout</a>
